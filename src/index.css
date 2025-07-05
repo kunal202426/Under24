@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Under24 Design System - Modern Tech Startup Aesthetic
+All colors MUST be HSL for consistency.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Under24 Color Palette */
+    --background: 220 30% 5%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 25% 8%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 25% 8%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 30% 5%;
+    --primary-glow: 217 91% 70%;
+
+    --secondary: 262 83% 58%;
+    --secondary-foreground: 220 15% 95%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 318 86% 68%;
+    --accent-foreground: 220 30% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 15% 95%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 15%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Under24 Custom Design Tokens */
+    --electric-blue: 217 91% 60%;
+    --deep-purple: 262 83% 58%;
+    --pink-accent: 318 86% 68%;
+    --glass-bg: 220 25% 8%;
+    --glass-border: 220 30% 25%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--deep-purple)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--deep-purple)), hsl(var(--pink-accent)));
+    --gradient-hero: linear-gradient(180deg, hsl(220 30% 5%) 0%, hsl(220 35% 8%) 50%, hsl(220 30% 5%) 100%);
+    --gradient-glass: linear-gradient(145deg, hsl(220 25% 12% / 0.8), hsl(220 30% 8% / 0.6));
+    
+    /* Shadows & Effects */
+    --shadow-neon: 0 0 30px hsl(var(--electric-blue) / 0.4);
+    --shadow-purple: 0 0 50px hsl(var(--deep-purple) / 0.3);
+    --shadow-glass: 0 8px 32px hsl(220 30% 5% / 0.4);
+    --backdrop-blur: blur(12px);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode overrides (Under24 is primarily dark) */
+  .light {
+    --background: 220 15% 95%;
+    --foreground: 220 30% 5%;
+    --card: 220 10% 98%;
+    --glass-bg: 220 15% 98%;
+    --glass-border: 220 20% 85%;
+    --gradient-hero: linear-gradient(180deg, hsl(220 15% 95%) 0%, hsl(220 20% 98%) 50%, hsl(220 15% 95%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Under24 Custom Base Styles */
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .purple-glow {
+    box-shadow: var(--shadow-purple);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .code-font {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
